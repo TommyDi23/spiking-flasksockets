@@ -36,7 +36,7 @@ export class TestComponent implements OnInit {
     
       // here we want to connect to the socketio server
 
-    this.webSocketService.emit("btn click", { x: event.target.value})
+    this.webSocketService.emit("btn click", { votes: event.target.value})
       
     
     console.log(event.target.value);
@@ -46,5 +46,7 @@ export class TestComponent implements OnInit {
 
   logMessage(value) {
     console.log(value);
+    this.webSocketService.emit("question input", { question: value })
+
   }
 }
